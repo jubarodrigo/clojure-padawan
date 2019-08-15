@@ -1,10 +1,10 @@
 # padwan
 
-A Clojure library designed to ... well, that part is up to you.
+Exercicios e exemplos de estudo em Clojure, todos possuindo comentario explicativo.
 
 ## Usage
 
-FIXME
+Seja esperto, use: lein repl
 
 ## License
 
