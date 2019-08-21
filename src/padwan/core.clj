@@ -70,5 +70,3 @@
 
 ;outra forma de retornar o valor de uma chave
 (:valor transacao)
-
-
