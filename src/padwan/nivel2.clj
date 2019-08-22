@@ -59,3 +59,32 @@
    (str "Ola,"  nome  "!"))
  "mundo novo"
  )
+
+;funcao de filtrar valores maiores que sem utilizando funcao anonima
+(filter
+  (fn [transacao] (> (:valor transacao) 100))
+  transacoes
+  )
+
+;mesma função anterior, com funcao anonima de forma abreviada
+(reduce
+  + (map #(:valor %)
+         (filter #(= (:tipo %) "despesa") transacoes))
+  )
+
+;-----------------------------------THREAD FIRST/LAST----------------------------------
+
+;retorna o primeiro valor do mapa
+(so-valor (first transacoes))
+
+;funcao thread first faz com que o resultado da linha seja passado como
+; primeiro argumento na proxima funcao
+(-> (first transacoes)
+    (so-valor)
+    )
+;funcao thread last passa o resultado da funcao como ultimo argumento da funcao seguinte
+(->> (filter despesa? transacoes)
+     (map so-valor)
+     (reduce +)
+     )
+
