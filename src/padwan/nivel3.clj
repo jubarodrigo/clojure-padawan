@@ -20,7 +20,7 @@
 ; para reutilização dentro do escopo da função
 (defn valor-sinalizado-ref
   [transacao]
-  (let [moeda (:moeda transacao)
+  (let [moeda (:moeda transacao "R$")
         valor (:valor transacao)]
     (if (= (:tipo transacao) "despesa")
       (str moeda " -" valor)
@@ -28,3 +28,10 @@
 
 ;retorna segundo valor do mapa
 (valor-sinalizado-ref (second transacoes))
+
+(defn data-valor
+  [transacao]
+  (str (:data transacao) "=>" (valor-sinalizado-ref transacao)))
+
+(data-valor (first transacoes))
+
