@@ -21,6 +21,8 @@
         :else num)
   )
 
+;-------------------------------LISTAS--------------------------
+
 ;def define uma constante
 ;range é uma função que percorre o espaço informado entre dois numeros
 ;criacao de uma lista
@@ -35,6 +37,11 @@
 ;retorna a primeira posicao
 (first cantora-arretada)
 
+;funcao hash-set cria uma lista de valores unicos
+(def artistas #{"Renata Arruda" "Chico Cesar"})
+
+;-------------------------------VETORES--------------------------
+
 ;funcao vector cria um vetor
 (def cantor-arretado (vector "Chico cesar" "Catole da Rocha" 26 "janeiro" 1964))
 
@@ -47,11 +54,19 @@
 ;funcao conj adiciona elementos em uma lista ou array
 (conj cantor-arretado "MPB")
 
-;funcao hash-set cria uma lista de valores unicos
-(def artistas #{"Renata Arruda" "Chico Cesar"})
+;-------------------------------MAPAS--------------------------
 
+;funcao hash-map cria um mapa chave-valor
+(hash-map :valor 200 :tipo "receita")
 
+;outra forma de criar um mapa
+(def transacao {:valor 200 :tipo "receita"})
 
+;assoc adiciona mais uma chave-valor ao mapa
+(assoc transacao :categoria "educação")
 
+;retorna o valor da chave informada
+(get transacao :valor)
 
-
+;outra forma de retornar o valor de uma chave
+(:valor transacao)
