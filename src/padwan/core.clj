@@ -9,23 +9,25 @@
 ;Função zero? verifica se o numero é exatamente zero e mod traz o resto da divisão
 (defn divisivel-por?
   [dividendo divisor]
-  (zero? (mod dividendo divisor))
-  )
+  (zero? (mod dividendo divisor)))
 
 ;Funcao and verifica se as duas condicoes sao verdadeiras
+
+
 (defn fizzbuzz
   [num]
   (cond (and (divisivel-por? num 3) (divisivel-por? num 5)) "fizzbuzz"
         (divisivel-por? num 3) "fizz"
         (divisivel-por? num 5) "buzz"
-        :else num)
-  )
+        :else num))
 
 ;-------------------------------LISTAS--------------------------
 
 ;def define uma constante
 ;range é uma função que percorre o espaço informado entre dois numeros
 ;criacao de uma lista
+
+
 (def um-ate-quinze (range 1 16))
 
 ;list cria uma lista de elementos
