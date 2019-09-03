@@ -9,7 +9,8 @@
 ;Função zero? verifica se o numero é exatamente zero e mod traz o resto da divisão
 (defn divisivel-por?
   [dividendo divisor]
-  (zero? (mod dividendo divisor)))
+  (zero? (mod dividendo divisor))
+  )
 
 ;Funcao and verifica se as duas condicoes sao verdadeiras
 
