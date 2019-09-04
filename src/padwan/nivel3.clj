@@ -1,5 +1,6 @@
 (ns padwan.nivel3)
 
+;-----------------------------------CONCATENACAO----------------------------------
 ;define um mapa
 (def transacoes
   [{:valor 33.0M :tipo "despesa" :comentario "Almoço" :moeda "R$" :data "19/08/2019"}
@@ -15,6 +16,8 @@
 
 ;retorna primeiro valor do mapa
 (valor-sinalizado (first transacoes))
+
+;-----------------------------------USANDO VARIAVEIS DE ESCOPO----------------------------------
 
 ;let é usada para criação de variaveis locais, atribuindo valores
 ; para reutilização dentro do escopo da função
@@ -40,7 +43,7 @@
 ;substitui valor por conversao para yuan e altera simbolo da moeda
 (defn transacao-em-yuan
   [transacao]
-  (assoc transacao :valor (* 2.15M (:valor transacao) )
+  (assoc transacao :valor (* 2.15M (:valor transacao))
                    :moeda "¥"))
 
 ;retorna o resultado da funcao com a primeira posicao do mapa
@@ -62,10 +65,18 @@
 ;retorna o resultado da funcao com a primeira posicao do mapa
 (transacao-em-yuan (first transacoes))
 
-;
+;-----------------------------------COMPOSIÇÃO----------------------------------
+
+;retorna um mapa no formato com data e valor
 (defn resumo-transacao-em-yuan
   [transacao]
   (data-valor (transacao-em-yuan transacao))
   )
 
+;comp faz a composicao de funcoes, util para reuso
+(def resumo-transacao-em-yuan (comp data-valor transacao-em-yuan))
+
+;mapeia as transacoes e retorna conforme funcao anterior
 (map resumo-transacao-em-yuan transacoes)
+
+
